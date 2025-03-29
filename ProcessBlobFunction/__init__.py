@@ -3,18 +3,20 @@ import azure.functions as func
 import gzip
 
 def main(myblob: func.InputStream, outputblob: func.Out[bytes]):
-    """Azure Function to compress an uploaded file using gzip and store it in the output container."""
-    
-    logging.info(f"🚀 Processing file: {myblob.name} ({myblob.length} bytes)")
+    logging.info(f"🚀 بدء معالجة الملف: {myblob.name} (الحجم: {myblob.length} بايت)")
 
     try:
-        # قراءة محتوى الملف وضغطه
-        compressed_data = gzip.compress(myblob.read())
+        # قراءة المفحص
+        raw_data = myblob.read()
+        logging.info(f"📦 تم قراءة {len(raw_data)} بايت من {myblob.name}")
 
-        # تخزين البيانات المضغوطة في `outputblob`
+        # ضغط الملف
+        compressed_data = gzip.compress(raw_data)
+        logging.info(f"🗜️ تم ضغط الملف إلى {len(compressed_data)} بايت")
+
+        # الحفظ في الإخراج
         outputblob.set(compressed_data)
-
-        logging.info(f"✅ File '{myblob.name}' compressed successfully! Saved as '{myblob.name}.gz'.")
+        logging.info(f"✅ تم حفظ الملف المضغوط في output/{myblob.name}.gz")
 
     except Exception as e:
-        logging.error(f"❌ ERROR processing '{myblob.name}': {str(e)}")
+        logging.error(f"❌ فشل المعالجة: {str(e)}", exc_info=True)  # تسجيل التفاصيل الكاملة للخطأ
