@@ -1,64 +1,39 @@
-📁 Auto-Compress Blobs | Azure Functions
-A serverless Python function that automatically compresses files in Azure Blob Storage
+# Azure Blob Auto-Compressor 🚀
 
-Azure Functions
-Python
-License: MIT
+![Azure Functions](https://img.shields.io/badge/Azure_Functions-0062AD?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
-🔍 Overview
-This Azure Function automatically detects and compresses files uploaded to Azure Blob Storage using Python's gzip. Designed for cost-efficient storage optimization, it processes files in real-time with zero infrastructure management.
+A serverless Azure Function that automatically compresses files in Blob Storage using Python's gzip compression.
 
-✨ Features
-Blob Trigger - Instantly processes new files in input container
+## 🌟 Features
 
-Gzip Compression - Reduces file sizes by up to 90%
+- ⚡ Real-time file processing with Blob Storage triggers
+- 📦 Gzip compression for optimal file size reduction
+- 🔍 Detailed logging with Azure Application Insights
+- 🔄 Automatic retry on failures
+- 🔒 Secure Azure AD integration
 
-Serverless Architecture - Pay-per-execution pricing
+## 📦 Prerequisites
 
-Logging - Integrated with Azure Monitor and Application Insights
+- Azure subscription
+- Python 3.10+
+- Azure Functions Core Tools v4.x
+- Azure CLI
 
-Scalable - Handles parallel file processing
+## 🛠️ Installation
 
-🚀 Quick Start
-bash
-Copy
-1. func azure functionapp publish <FUNCTION_APP_NAME>
-2. Upload files to your 'input' container
-3. Find compressed files in 'output' container
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/azure-blob-autocompressor.git
 
-   
-📂 Project Structure
-Copy
-├── __init__.py            # Main function logic
-├── function.json          # Trigger/binding config
-├── host.json              # Runtime settings
-├── requirements.txt       # Python dependencies
-└── README.md              # You're here!
+# Navigate to project directory
+cd azure-blob-autocompressor
 
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/MacOS
+.\.venv\Scripts\activate  # Windows
 
-💡 Use Cases
-Log file optimization
-
-Pre-processing for data pipelines
-
-Automated backup compression
-
-Serverless file transformation
-
-🛠️ Tech Stack
-Runtime: Azure Functions (Python 3.10)
-
-Storage: Azure Blob Storage
-
-Tooling: Azure CLI, VS Code
-
-Monitoring: Azure Application Insights
-
-📝 Bio for GitHub Profile
-🔧 Auto-Compress Blobs
-Open-source Azure Function that automates file compression in cloud storage. Perfect for developers needing serverless solutions for storage optimization. Features real-time processing, Python integration, and enterprise-grade scalability.
-
-"Because storage costs add up – but your time shouldn't."
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fyour-repo%2Fmain%2Fdeploy.json)
-[![Python CI](https://github.com/your-repo/auto-compress-blobs/actions/workflows/python-app.yml/badge.svg)](https://github.com/your-repo/auto-compress-blobs/actions)
+# Install dependencies
+pip install -r requirements.txt
