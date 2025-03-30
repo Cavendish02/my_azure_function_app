@@ -25,6 +25,8 @@ Copy
 1. func azure functionapp publish <FUNCTION_APP_NAME>
 2. Upload files to your 'input' container
 3. Find compressed files in 'output' container
+
+   
 📂 Project Structure
 Copy
 ├── __init__.py            # Main function logic
@@ -32,6 +34,8 @@ Copy
 ├── host.json              # Runtime settings
 ├── requirements.txt       # Python dependencies
 └── README.md              # You're here!
+
+
 💡 Use Cases
 Log file optimization
 
